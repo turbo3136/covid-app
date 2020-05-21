@@ -12,7 +12,8 @@ body {
     --sidebar-width: 300px;
     --sidebar-color: #fff;
     --sidebar-text-color: #444;
-    --current-link-color: #e0ecff;
+    --current-link-color: #edf3fc;
+    --label-text-color: #444;
 }
 
 .dashboard-wrapper {
@@ -71,7 +72,7 @@ a:link, a:visited {
     column-gap: 10px;
     grid-template-areas: "sidebar content";
     grid-template-columns: var(--sidebar-width) 1fr;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--header-height));
 }
 
 .sidebar {
@@ -90,5 +91,47 @@ a:link, a:visited {
 
 .content {
     grid-area: content;
-    padding: 10px 0 0 0 ;
+    padding: 20px 10px 0 0;
+}
+
+.output {
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 0 4px 4px #bbb;
+}
+
+.output-label {
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+    padding-top: 10px;
+    color: var(--label-text-color);
+}
+
+.graph-input {
+    display: inline-block;
+    width: 300px;
+    margin: 4px 4px 4px 4px;
+}
+
+/*.tabs-container {
+
+}*/
+
+/*.tabs {
+
+}*/
+
+.tab {
+    max-width: 240px !important;
+    color: #666;
+    background-color: #fff !important;
+    font-weight: bold !important;
+}
+
+.tab:hover {
+    color: #000;
+}
+
+.tab--selected {
+    background-color: var(--current-link-color) !important;
 }

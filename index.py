@@ -3,8 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 from app import app, wrapper_div_id
-import testing
-import homepage
+from apps import testing, playground, positives, deaths, homepage, fourohfour
 
 # this initial layout is an empty div with our wrapper_div_id from the app
 # also notice the dcc.Location object. This tracks what page we're on.
@@ -24,10 +23,14 @@ def display_page(pathname):
         return homepage.layout
     elif pathname == '/testing':
         return testing.layout
-    # elif pathname == '/app2':
-    #     return app2.layout
-    # else:
-    #     return fourohfour.layout
+    elif pathname == '/positives':
+        return positives.layout
+    elif pathname == '/deaths':
+        return deaths.layout
+    elif pathname == '/playground':
+        return playground.layout
+    else:
+        return fourohfour.layout
 
 
 if __name__ == '__main__':
