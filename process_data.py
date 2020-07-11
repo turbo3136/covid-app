@@ -65,10 +65,11 @@ def process_data():
     df_states['pct_of_population_inferred_positive'] = df_states['inferred_positive'] / df_states['population']
     df_states['pct_of_population_hidden_positive'] = df_states['hidden_positive'] / df_states['population']
     df_states['positive_test_rate_today'] = df_states['positiveIncrease'] / df_states['totalTestResultsIncrease']
-    # rolling sums
+    # rolling averages
     df_states['positiveIncrease_last_7'] = df_states.groupby('state')['positiveIncrease'].rolling(7).sum().reset_index(drop=True)
     df_states['totalTestResultsIncrease_last_7'] = df_states.groupby('state')['totalTestResultsIncrease'].rolling(7).sum().reset_index(drop=True)
     df_states['positive_test_rate_7_day_avg'] = df_states['positiveIncrease_last_7'] / df_states['totalTestResultsIncrease_last_7']
+    df_states['pct_of_population_hospitalized'] = df_states['hospitalizedCurrently'] / df_states['population']
 
     # df_states.head()
 
